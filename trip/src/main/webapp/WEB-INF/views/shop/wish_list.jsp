@@ -88,7 +88,6 @@
 							<!-- 하단 버튼 영역 -->
 							<button id="btnUpdate" style="float: left; width: 160px; font-size: 15px;">수정</button>
 							<button type="button" id="btnAllDelete" style="width: 160px; margin-left: 50px; font-size: 15px;">장바구니 비우기</button>
-
 						</form>
 					</c:otherwise>
 				</c:choose>
