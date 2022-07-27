@@ -165,7 +165,7 @@ function btnPay(){
 								<select name="pay" id="pay" style="width:165px; padding:2.5px;"> 
 									<option value="">결제방법 선택</option>
 									<option value="1">계좌이체</option>
-									<option value="2">카드</option>
+									<option value="2">신용카드</option>
 								</select>
 							</td>
 						</tr>
