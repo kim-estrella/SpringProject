@@ -21,12 +21,16 @@ public class OrderController {
 	@RequestMapping("orderPage.do")
 	public ModelAndView orderPage(HttpSession session, int code) {
 		ModelAndView mav = new ModelAndView();
-		
+		String id = (String)session.getAttribute("id");
 		ProductDTO dto = orderDao.orderPage(code);
 		
-		mav.setViewName("shop/order"); 
-		mav.addObject("dto", dto);
-		return mav; 
+		if(id !=null) {
+			mav.setViewName("shop/order"); 
+			mav.addObject("dto", dto); 
+			return mav;	
+		} else {
+			return new ModelAndView("member/login");
+		}
 	} 
 	
 	@RequestMapping("insert.do")

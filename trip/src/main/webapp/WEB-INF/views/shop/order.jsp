@@ -20,6 +20,7 @@ $(function(){
 	    $("#money").html(money);
 	});	
 });
+
 function showPostcode(){
 	new daum.Postcode({
 		oncomplete : function(data){
@@ -47,9 +48,11 @@ function showPostcode(){
 		}
 	}).open();
 }
+
 function btnPay(){
 	var amount = document.form2.amount.value;//인원수
 	var name = document.form2.name.value;//성함
+	var email = document.form2.email.value; //이메일
 	var post_code = document.form2.post_code.value;//우편번호
 	var address = document.form2.address.value;//주소
 	var address2 = document.form2.address2.value;//상세 주소
@@ -63,6 +66,11 @@ function btnPay(){
 	if(name ==""){
 		alert("성함을 입력하세요.");
 		document.form2.name.focus();
+		return;
+	}
+	if(email == ""){
+		alert("이메일을 입력하세요.");
+		document.form2.email.focus();
 		return;
 	}
 	if(post_code ==""){
@@ -92,6 +100,7 @@ function btnPay(){
 
 </script>
 </head>
+
 <body class="order_list">
 	<div id="page-wrapper">
 		<%@ include file="../include/menu.jsp"%>
@@ -125,18 +134,19 @@ function btnPay(){
    							</td>
    							<td><span id="money"></span>원</td>
 						</tr>
-						
 						<tr>
 							<td>예약자 성함</td>
 							<td><input id="name" name="name" style="border:solid 1px #dddddd; border-radius:5px;"></td>
 						</tr>
-						
+						<tr>
+							<td>예약자 이메일</td>
+							<td><input id="email" name="email" style="border:solid 1px #dddddd; border-radius:5px;"></td>
+						</tr>
 						<tr>
 							<td>우편번호</td>
 							<td><input name="zipcode" id="post_code" style="border:solid 1px #dddddd; border-radius:5px;" readonly> &nbsp;&nbsp;&nbsp;
 							<input type="button" onclick="showPostcode()" value="우편번호 찾기" style="font-size:12px; text-align:center; padding:0px; width:100px; height:30px;"></td>
 						</tr>
-						
 						<tr>
 							<td>주소</td>
 							<td><input name="address" id="address" size="60" style="border:solid 1px #dddddd; border-radius:5px;" readonly></td>

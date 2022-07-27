@@ -6,6 +6,7 @@ public class OrderDTO {
 	private String id; //사용자 아이디
 	private int wish_id;
 	private String name; //사용자 이름
+	private String email; //회원 이메일
 	private int code; //상품코드
 	private String title; //여행 제목
 	private int price; //여행 가격
@@ -38,6 +39,12 @@ public class OrderDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public int getCode() {
 		return code;
 	}
@@ -62,7 +69,6 @@ public class OrderDTO {
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
-
 	public String getAddress() {
 		return address;
 	}
@@ -81,11 +87,11 @@ public class OrderDTO {
 	public void setPay(int pay) {
 		this.pay = pay;
 	}
+	
 	@Override
 	public String toString() {
-		return "OrderDTO [order_id=" + order_id + ", id=" + id + ", wish_id=" + wish_id + ", name=" + name + ", code="
-				+ code + ", title=" + title + ", price=" + price + ", amount=" + amount + ", address=" + address
-				+ ", phone=" + phone + ", pay=" + pay + "]";
+		return "OrderDTO [order_id=" + order_id + ", id=" + id + ", wish_id=" + wish_id + ", name=" + name + ", email="
+				+ email + ", code=" + code + ", title=" + title + ", price=" + price + ", amount=" + amount
+				+ ", address=" + address + ", phone=" + phone + ", pay=" + pay + "]";
 	}
-
 }

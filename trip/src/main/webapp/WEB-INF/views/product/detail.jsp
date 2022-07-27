@@ -25,6 +25,10 @@ a {
 	function board_list() {
 		location.href="/board/list.do";
 	}
+	
+	function btnOrder(code){
+		location.href = "/order/orderPage.do?code=" + code;
+	}
 </script>
 </head>
 <body class="left-sidebar is-preload">
@@ -45,8 +49,7 @@ a {
 							<c:if test="${sessionScope.id == dto.writer}">
 							<%-- <c:if test="${sessionScope.id != null}"> --%>
 								<input type="hidden" name="code" value="${dto.code }">
-								<a style="margin: 3%; float: right;"
-									href="/product/edit/${dto.code}">수정</a>
+								<a style="margin: 3%; float: right;" href="/product/edit/${dto.code}">수정</a>
 								<input type="button" onclick="product_delete()"
 									style="background: none; color: black; font-weight: 1; float: right; margin: 3%; padding: 0"
 									value="삭제">
@@ -78,11 +81,11 @@ a {
 							<p style="font-size: 130%; ">여행 날짜 : ${dto.date }&nbsp; ${dto.starttime } ~ ${dto.endtime }</p>
 							<p style="font-size: 130%; text-align: center; /* position: absolute;  right: 40%; bottom: 30% */ margin-top: 5%">가격 : ${dto.price }&nbsp;원</p>
 							<p style="font-size: 130%;  color: black;">상품코드 : ${dto.code }</p>
-							<form name="form1" method="post" action="/wish/insert.do"
-								style="margin-left: 10%; overflow: hidden; margin-top: 10%">
+							<form name="form1" method="post" action="/wish/insert.do" style="margin-left: 10%; overflow: hidden; margin-top: 10%">
 								<input type="hidden" name="writer" value="${dto.writer}">
 								<input type="hidden" name="code" value="${dto.code}"> 
-								<input type="submit" value="구매/위시리스트" style="margin: 5%; float: left;">	
+								<input type="submit" value="위시리스트" style="margin: 5%; float: left;">	
+								<input type="button" onclick="btnOrder('${code}')" value="결제" style="margin: 5%; float: left;">
 								<input type="button" onclick="board_list()" value="상품문의" 	style="float: left; margin: 5%">						
 							</form>
 						</div>
